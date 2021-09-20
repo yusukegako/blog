@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">Blog</a></h1>
+      <div class="option">
+        <p>SignIn<p>
+        <p>SignOut</p>
+        <a href="/blog/new">New</a>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

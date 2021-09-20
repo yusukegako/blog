@@ -1,0 +1,10 @@
+<% @blog.each do |blog| %>
+  <div class="post-area">
+    <p><%= blog.text %></p>
+    <div class="sed">
+      <p class="show">SHOW</p>
+      <p class="edit"><%= link_to 'EDIT', edit_blog_path(blog.id), method: :get %></p>
+      <p class="destroy"><%= link_to 'DESTROY', blog_path(blog.id), method: :delete %></p>
+    </div>
+  </div>
+<% end %>

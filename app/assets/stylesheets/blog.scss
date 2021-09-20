@@ -1,0 +1,46 @@
+header {
+  background-color: seagreen;
+  display: flex;
+  color: white;
+}
+
+h1 {
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  margin-left: 1400px;
+}
+
+.post-area {
+  margin: 70px auto;
+  width: 1000px;
+  border: solid 1px lavender;
+}
+
+.sed {
+  width: 320px;
+  display: flex;
+  margin-left: 20px;
+  justify-content:space-between;
+}
+
+.show, .edit, .destroy {
+  height: 30px;
+  width: 90px;
+  background-color: seagreen;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
