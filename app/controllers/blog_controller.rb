@@ -1,4 +1,5 @@
 class BlogController < ApplicationController
+  before_action :set_content, only: [:edit, :show]
 
   def index
     @blog = Content.all.order("created_at DESC")
@@ -20,7 +21,6 @@ class BlogController < ApplicationController
   end
   
   def edit
-    @contents = Content.find(params[:id])
   end
   
   def update
@@ -29,9 +29,16 @@ class BlogController < ApplicationController
     redirect_to action: :index
   end
   
+  def show
+  end
+  
   private
   def content_params
     params.require(:content).permit(:text)
+  end
+  
+  def set_content
+    @contents = Content.find(params[:id])
   end
 
 end
