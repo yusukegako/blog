@@ -3,7 +3,7 @@ class BlogController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @blog = Content.all.order("created_at DESC")
+    @blog = Content.includes(:user).order("created_at DESC")
   end
   
   def new
@@ -35,7 +35,7 @@ class BlogController < ApplicationController
   
   private
   def content_params
-    params.require(:content).permit(:text)
+    params.require(:content).permit(:text).merge(user_id: current_user.id)
   end
   
   def set_content
