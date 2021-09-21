@@ -1,5 +1,6 @@
 class BlogController < ApplicationController
   before_action :set_content, only: [:edit, :show]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @blog = Content.all.order("created_at DESC")
@@ -39,6 +40,12 @@ class BlogController < ApplicationController
   
   def set_content
     @contents = Content.find(params[:id])
+  end
+  
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end

@@ -12,11 +12,17 @@
   <body>
     <header>
       <h1><a href="/">Blog</a></h1>
-      <div class="option">
-        <p>SignIn<p>
-        <p>SignOut</p>
-        <a href="/blog/new">New</a>
-      </div>
+      <% if user_signed_in? %>
+        <div class="option">
+          <%= link_to "SignOut", destroy_user_session_path, method: :delete %>
+          <%= link_to "New", new_blog_path %>
+        </div>
+      <% else %>
+        <div class="option">
+          <%= link_to "SignIn", new_user_session_path %>
+          <%= link_to "SignUp", new_user_registration_path %>
+        </div>
+      <% end %>
     </header>
     <%= yield %>
   </body>
